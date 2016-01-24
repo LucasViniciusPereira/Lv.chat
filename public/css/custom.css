@@ -1,0 +1,32 @@
+body { font-family: Conv_ProximaNova-Light, Arial, Tahoma; font-weight: 500; font-size: 17px; }
+html { position: relative; min-height: 100%; }
+
+#lstMensagens { border: 1px solid #ccc; height: 400px; overflow: auto; list-style-type: none; }
+#step-0 { margin-top: 100px; }
+#lstUser { color: #336762; font-size: 18px; max-height: 360px; overflow: auto; }
+.display { display: none; }
+.text-color-0 { color: black; }
+.text-color-1 { color: #eb9d00 !important; }
+.hours { float: right; margin-right: 10px; font-weight: bolder; margin-top: 3px; }
+.creatorImage { float: left; width: 100px; height: 100px; border-radius: 50%; }
+.center { display: block; margin-left: auto; margin-right: auto; }
+.not-border { border-radius: 0px; }
+li { background-color: rgb(236, 236, 236); padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: 1px solid rgba(204, 204, 204, 0.27); padding-left: 20px; margin-left: -40px; }
+.privado { color: black !important; background: rgba(198, 199, 197, 0.46); }
+.error { color: red !important; }
+.connection { }
+.bd-body { background: rgba(242, 242, 242, 0.45); }
+.conectado { background-color: white; border-bottom: white; color: #0935DE; }
+.desconectado { background-color: white; border-bottom: white; color: red; }
+.margin-top-10perc { margin-top: 10%; }
+.content-login { background: rgba(46, 60, 89, 0.82) !important; padding: 40px 10px; }
+.author { font-size: 15px; color: white; font-weight: 500; }
+.margin-top-30 { margin-top: 30px; }
+.margin-top-10 { margin-top: 10px; }
+.footer { position: absolute; bottom: 0; height: 80px; font-size: 14px; }
+.user-connected { padding: 3px 0; border-bottom: 1px solid #E8E8E8; font-size: 27px; }
+.font-size-17 { font-size: 17px; }
+.max-users { height: 400px; overflow-x: hidden; }
+.no-margin-right { margin-right: 0px; }
+.blue { color: #2F46C1; }
+.img-emotion{ width: 26px; cursor: pointer; }
