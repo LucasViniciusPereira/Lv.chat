@@ -23,10 +23,15 @@ io.on('connection', function (socket) {
 
     socket.on('new message', function (data, callback) {
         //Recuperando as horas
-        var _dateNow = new Date(), hora = _dateNow.getHours(), min = _dateNow.getMinutes(),
-		str_hora = (hora - 3) + ':' + min;
+        var _dateNow = new Date(), hora = _dateNow.getHours(), min = _dateNow.getMinutes();
+        //PadLeft nas horas
+        var _horaBR = "" + (hora - 3), _minBR = "" + min, padLeft = "00";
+        var horaBR = padLeft.substring(0, padLeft.length - _horaBR.length) + _horaBR;
+        var minBR = padLeft.substring(0, padLeft.length - _minBR.length) + _minBR;
 
+        str_hora = horaBR + ':' + minBR;
         var msg = data.trim();
+
         io.emit('new message', { msg: data, usuario: socket.usuario, date: str_hora });
     });
 
