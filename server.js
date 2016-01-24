@@ -22,6 +22,11 @@ app.get('/', function (req, res) {
 io.on('connection', function (socket) {
 
     socket.on('new message', function (data, callback) {
+        //Autenticação do usuário
+        var _validateUser = validateUserConnected(socket.usuario);
+        if (_validateUser == false)
+            return io.sockets.emit('validateUser', _validateUser);
+        
         //Recuperando as horas
         var _dateNow = new Date(), hora = _dateNow.getHours(), min = _dateNow.getMinutes();
         //PadLeft nas horas
@@ -42,7 +47,7 @@ io.on('connection', function (socket) {
         if (!socket.usuario)
             return;
         //Enviar mensagem quando o usuario Desconetar
-        io.sockets.emit('cnnUserDisconnect', { msg: 'desconectou-se do chat...', usuario: socket.usuario });
+        io.sockets.emit('cnnUserDisconnect', { msg: 'desconectou-se do chat.', usuario: socket.usuario });
 
         delete listUsers[socket.usuario];
         getUsersConnected();
@@ -58,7 +63,7 @@ io.on('connection', function (socket) {
             callback(true);
 
             //Enviar mensagem quando o usuario conectar
-            io.sockets.emit('cnnUserConnected', { msg: 'esta connectado...', usuario: data });
+            io.sockets.emit('cnnUserConnected', { msg: 'esta conectado.', usuario: data });
 
             //Adiciona user na lista de usuarios conectados
             socket.usuario = data;
@@ -77,6 +82,13 @@ function getUsersConnected() {
 
     //retorna os nomes dos usuarios
     io.sockets.emit('listaUsuarios', Object.keys(listUsers));
+}
+
+/* Valida autenticação do usuário */
+function validateUserConnected(user) {
+    if (user === "" || user === undefined || user == 'undefined')
+        return false;
+    return true;
 }
 
 http.listen(port, function () {

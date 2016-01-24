@@ -1,7 +1,8 @@
 body { font-family: Conv_ProximaNova-Light, Arial, Tahoma; font-weight: 500; font-size: 17px; }
 html { position: relative; min-height: 100%; }
 
-#lstMensagens { border: 1px solid #ccc; height: 400px; overflow: auto; list-style-type: none; }
+#lstMensagens { border: 1px solid #ccc; height: 400px; list-style-type: none; }
+#wrap { height: 400px; overflow: auto; }
 #step-0 { margin-top: 100px; }
 #lstUser { color: #336762; font-size: 18px; max-height: 360px; overflow: auto; }
 .display { display: none; }
@@ -29,4 +30,4 @@ li { background-color: rgb(236, 236, 236); padding-top: 10px !important; padding
 .max-users { height: 400px; overflow-x: hidden; }
 .no-margin-right { margin-right: 0px; }
 .blue { color: #2F46C1; }
-.img-emotion{ width: 26px; cursor: pointer; }
+.img-emotion { width: 26px; cursor: pointer; }

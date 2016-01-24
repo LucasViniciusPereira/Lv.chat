@@ -50,6 +50,8 @@ socket.on('new message', function (data) {
     msg = $(this).retornaMensagemEmotion(data.msg);
     mensagem = '<b>[<i>' + data.date + '</i>]</b><i class="blue"> ' + data.usuario + ':</i> ' + msg;
     $('#lstMensagens').append($('<li>').html(mensagem));
+    //Rola scroll
+    $("#wrap").animate({ scrollTop: $('#wrap').prop("scrollHeight") }, 200);
 });
 
 //Mensagem PRIVADO
@@ -84,4 +86,13 @@ socket.on('listaUsuarios', function (data) {
 /*Quantidade de usuarios conectados -- Emit*/
 socket.on('qtdUsers', function (msg) {
     $("#qtdUsersConncted").text(msg.qtdUsers);
+});
+
+socket.on('validateUser', function (param) {
+    /*Visibilidade*/
+    $step2.slideUp(300).delay(500).fadeOut(700);
+    $step1.show();
+    //$step1.removeClass("display");
+    $erroAplication.show();
+    $erroAplication.text('Sua autenticacao espirou, faca login novamente.');
 });
